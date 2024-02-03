@@ -15,12 +15,12 @@ compinit
 # --- end of Zap installer
 
 # pnpm
-export PNPM_HOME="/Users/valerius/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 #
 # bun completions
-[ -s "/Users/valerius/.bun/_bun" ] && source "/Users/valerius/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -36,7 +36,7 @@ alias vv="nvim ."
 
 # Git
 alias lg="lazygit"
-[ -s "/Users/valerius/.zsh_git.zsh" ] && source "/Users/valerius/.zsh_git.zsh"
+[ -s "$HOME/.zsh_git.zsh" ] && source "$HOME/.zsh_git.zsh"
 
 # Docker
 alias ld="lazydocker"
@@ -48,11 +48,6 @@ export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 alias ncfg="cd ~/.config/nvim/lua/user && nvim . && cd -"
 alias kubectl="minikube kubectl --"
 alias cls="clear"
-
-# # k8s
-# export K8S_API_SERVER="https://127.0.0.1:51238"
-# export K8S_TOKEN="$(kubectl create token default)"
-alias s="kitty +kitten ssh"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -91,9 +86,9 @@ kill_port() {
 }
 
 # opam configuration
-[[ ! -r /Users/valerius/.opam/opam-init/init.zsh ]] || source /Users/valerius/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-[ -f "/Users/valerius/.ghcup/env" ] && source "/Users/valerius/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
