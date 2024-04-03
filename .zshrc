@@ -97,3 +97,28 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # Docker ...
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
+eval "$(zoxide init zsh)"
+alias cd="z"
+
+PATH=~/.console-ninja/.bin:$PATH
+export ANDROID_HOME=$HOME/Library/Android/sdk
+
+function setup_venv() {
+    if [[ ! -d .venv ]]; then 
+        echo "creating .venv"
+        python3 -m venv .venv
+        if [[ ! -f ./.gitignore ]] || ! grep -q "^venv/$" ./.gitignore; then
+            curl -L "https://www.gitignore.io/api/python" > ./.gitignore
+        fi
+        if [[ -f ./requirements.txt ]]; then 
+            echo "requirements.txt found, installing"
+            ./.venv/bin/pip install -r ./requirements.txt
+        fi
+    fi
+    source ./.venv/bin/activate
+}
+alias venv=setup_venv
+
+alias ezs="$EDITOR ~/.zshrc"
+alias ":r"="source ~/.zshrc"
+alias szs="source ~/.zshrc"
