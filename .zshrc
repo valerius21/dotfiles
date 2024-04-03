@@ -122,3 +122,5 @@ alias venv=setup_venv
 alias ezs="$EDITOR ~/.zshrc"
 alias ":r"="source ~/.zshrc"
 alias szs="source ~/.zshrc"
+export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
+alias  vcfg="$EDITOR ~/.config/nvim/"
