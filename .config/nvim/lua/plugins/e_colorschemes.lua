@@ -1,7 +1,7 @@
 return {
   { "catppuccin/nvim", name = "catppuccin" },
   { "fxn/vim-monochrome", name = "monochrome" },
-  { "mountain-theme/Mountain", name = "mountain" },
+  -- { "mountain-theme/Mountain", name = "mountain" },
   { "bluz71/vim-moonfly-colors", name = "moonfly" },
   { "sainnhe/sonokai", name = "sonokai" },
   { "olimorris/onedarkpro.nvim", name = "onedarkpro" },
