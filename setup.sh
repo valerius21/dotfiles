@@ -45,6 +45,12 @@ else
 fi
 
 # Oh My ZSH
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 # install rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
@@ -56,4 +62,4 @@ cargo install bob-nvim
 bob install nightly
 bob use nightly
 
-# install fzf
+# TODO: add stow and dotfiles download
