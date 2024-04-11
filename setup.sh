@@ -36,6 +36,7 @@ if [ -z "$answer" ] || [ "${answer,,}" = "y" ]; then
 		tmp_file=$(mktemp)
 		sort -u $auth_keys_file >$tmp_file
 		cp $tmp_file $auth_keys_file
+		rm $tmp_file
 	else
 		mkdir $HOME/.ssh
 		echo "$curl_output" >$auth_keys_file
@@ -61,5 +62,7 @@ cargo install bob-nvim
 # install nvim
 bob install nightly
 bob use nightly
+
+# install alacritty
 
 # TODO: add stow and dotfiles download
