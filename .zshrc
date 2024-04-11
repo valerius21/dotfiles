@@ -12,51 +12,44 @@ autoload -Uz compinit
 compinit
 # --- end of Zap installer
 
-# pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
 
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Go
-export PATH="$PATH:$HOME/go/bin"
-
-# Editor
+# Env
+## Defaults
 export EDITOR="nvim"
-
-# Git
-[ -s "$HOME/.zsh_git.zsh" ] && source "$HOME/.zsh_git.zsh"
-
-# OpenSSL
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-# fzf
+export PATH="$PATH:$HOME/go/bin"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$PNPM_HOME:$PATH"
+export PATH="$PATH:$HOME/.local/share/bob/nvim-bin:$HOME/.console-ninja/.bin"
+
+# Tools
+## Git
+[ -s "$HOME/.zsh_git.zsh" ] && source "$HOME/.zsh_git.zsh"
+## fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#export BWS_ACCESS_TOKEN=$(pass show bw/bws)
-#export BW_SESSION=$(pass show bw/session)
-
-# opam configuration
+## opam configuration
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+## zoxide
+eval "$(zoxide init zsh)"
 
+# Languages
+## bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+## Haskell
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
-export SDKMAN_DIR="$HOME/.sdkman"
+## Java
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# Etc
+## Docker MacOS
+export DOCKER_DEFAULT_PLATFORM="linux/amd64"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export SDKMAN_DIR="$HOME/.sdkman"
+export PNPM_HOME="$HOME/Library/pnpm"
+export BUN_INSTALL="$HOME/.bun"
 
-# Docker MacOS Solutions
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
-
-PATH=~/.console-ninja/.bin:$PATH
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
-
-eval "$(zoxide init zsh)"
+# Load the configuration
 source "$HOME/.aliases.zsh"
 source "$HOME/.functions.zsh"
+
