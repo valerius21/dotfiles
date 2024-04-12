@@ -40,7 +40,7 @@ local function default_template(relative_path, filename)
 import React from 'react'
 
 export function ]] .. cc .. [[() {
-  return  <>]] .. cc .. [[</>;
+  return  <>|cursor|</>;
 }
 ]]
 end
