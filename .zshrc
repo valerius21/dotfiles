@@ -1,6 +1,6 @@
 # Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
-plug "zsh-users/zsh-autosuggestions"
+#plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
 plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-syntax-highlighting"
@@ -53,3 +53,4 @@ export BUN_INSTALL="$HOME/.bun"
 source "$HOME/.aliases.zsh"
 source "$HOME/.functions.zsh"
 
+eval "$(starship init zsh)"
