@@ -70,4 +70,7 @@ bob use nightly
 # install zoxide
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
+# install starship
+curl -sS https://starship.rs/install.sh | sh
+
 # TODO: add stow and dotfiles download

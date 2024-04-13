@@ -4,14 +4,14 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
+        "eslint-lsp",
         "flake8",
         "prettierd",
-        "eslint-lsp",
-        "typescript-language-server", -- DOC recommendation from his NextJS video
         "rust-analyzer",
+        "shellcheck",
+        "shfmt",
+        "stylua",
+        "typescript-language-server", -- DOC recommendation from his NextJS video
       },
     },
   },
