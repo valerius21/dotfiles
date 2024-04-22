@@ -45,4 +45,9 @@ function kill_port() {
 }
 
 
+function flush_dns() {
+  # TODO: assert Darwin
+
+  sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+}
 

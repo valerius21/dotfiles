@@ -15,3 +15,4 @@ alias ncfg="cd ~/.config/nvim/lua/user && nvim . && cd -"
 alias cls="clear"
 alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
 alias nk='NVIM_APPNAME="nvim-kickstart" nvim'
+alias ollamas="export OLLAMA_ORIGINS='*' && ollama serve"
