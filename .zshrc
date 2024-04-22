@@ -6,6 +6,7 @@ plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "wintermi/zsh-rust"
 plug "MichaelAquilina/zsh-you-should-use"
+plug "chivalryq/git-alias"
 
 # Load and initialise completion system
 autoload -Uz compinit
