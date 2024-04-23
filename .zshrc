@@ -37,7 +37,6 @@ eval "$(zoxide init zsh)"
 ## bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 ## Haskell
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 ## Java
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -55,3 +54,5 @@ source "$HOME/.aliases.zsh"
 source "$HOME/.functions.zsh"
 
 eval "$(starship init zsh)"
+
+[ -f "/home/valerius/.ghcup/env" ] && . "/home/valerius/.ghcup/env" # ghcup-env
