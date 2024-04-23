@@ -17,3 +17,5 @@ alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
 alias nk='NVIM_APPNAME="nvim-kickstart" nvim'
 alias ollamas="export OLLAMA_ORIGINS='*' && ollama serve"
 alias kubectl="minikube kubectl --"
+alias kc="minikube kubectl --"
+alias kcaf="minikube kubectl -- apply -f"

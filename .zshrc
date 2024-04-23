@@ -46,7 +46,7 @@ eval "$(zoxide init zsh)"
 export DOCKER_DEFAULT_PLATFORM="linux/amd64"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export SDKMAN_DIR="$HOME/.sdkman"
-export PNPM_HOME="$HOME/Library/pnpm"
+export PNPM_HOME="$HOME/.pnpm"
 export BUN_INSTALL="$HOME/.bun"
 
 # Load the configuration
@@ -56,3 +56,10 @@ source "$HOME/.functions.zsh"
 eval "$(starship init zsh)"
 
 [ -f "/home/valerius/.ghcup/env" ] && . "/home/valerius/.ghcup/env" # ghcup-env
+# pnpm
+export PNPM_HOME="/home/valerius/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
