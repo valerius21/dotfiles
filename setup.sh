@@ -24,22 +24,25 @@ fi
 # install dependencies
 sudo apt install -y curl wget git build-essential tmux fd-find zsh fish stow
 
+echo "Installing tpm for tmux. Remember to use PREFIX + I for installing the plugins"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # Github SSH Keys
-read -p "Do you want to import SSH keys from  github.com/valerius21? [Y/n]: " answer
+read -rp "Do you want to import SSH keys from  github.com/valerius21? [Y/n]: " answer
 if [ -z "$answer" ] || [ "${answer,,}" = "y" ]; then
 	echo "Getting Keys..."
 	curl_output="$(curl -sSL https://github.com/valerius21.keys)"
 	auth_keys_file="$HOME/.ssh/authorized_keys"
-	if [ -f $auth_keys_file ]; then
+	if [ -f "$auth_keys_file" ]; then
 		# combine outputs
-		echo "$curl_output" >>$auth_keys_file
+		echo "$curl_output" >>"$auth_keys_file"
 		tmp_file=$(mktemp)
-		sort -u $auth_keys_file >$tmp_file
-		cp $tmp_file $auth_keys_file
-		rm $tmp_file
+		sort -u "$auth_keys_file" >"$tmp_file"
+		cp "$tmp_file" "$auth_keys_file"
+		rm "$tmp_file"
 	else
-		mkdir $HOME/.ssh
-		echo "$curl_output" >$auth_keys_file
+		mkdir "$HOME/.ssh"
+		echo "$curl_output" >"$auth_keys_file"
 	fi
 else
 	echo "Continuing..."
@@ -58,7 +61,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # install bob-nvim
-source ~/.bashrc
+. "$HOME/.cargo/env"
 cargo install bob-nvim
 
 # install nvim
