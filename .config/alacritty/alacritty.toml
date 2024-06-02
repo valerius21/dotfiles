@@ -8,7 +8,7 @@ padding = { x = 2, y = 2 }
 dimensions = { columns = 150, lines = 40 }
 
 [font]
-size = 14
+size = 12
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
