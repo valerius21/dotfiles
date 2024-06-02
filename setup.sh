@@ -22,10 +22,12 @@ else
 fi
 
 # install dependencies
-sudo apt install -y curl wget git build-essential tmux fd-find zsh fish stow
+sudo apt install -y curl wget git build-essential tmux fd-find zsh fish stow fzf
 
 echo "Installing tpm for tmux. Remember to use PREFIX + I for installing the plugins"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# install plugins
+~/.tmux/plugins/tpm/bin/install_plugins
 
 # Github SSH Keys
 read -rp "Do you want to import SSH keys from  github.com/valerius21? [Y/n]: " answer
@@ -52,6 +54,8 @@ fi
 #sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # Zap
 zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+echo "source ~/.aliases.zsh" >> ~/.zshrc
+echo "source ~/.functions.zsh" >> ~/.zshrc
 
 # install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
