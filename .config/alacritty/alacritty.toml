@@ -1,4 +1,4 @@
-import = ["/Users/valerius/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+import = ["~/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
 
 [env]
 TERM = "xterm-256color"
@@ -8,7 +8,7 @@ padding = { x = 2, y = 2 }
 dimensions = { columns = 150, lines = 40 }
 
 [font]
-size = 16
+size = 12
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
@@ -25,4 +25,3 @@ style = "Italic"
 [font.bold_italic]
 family = "JetBrainsMono Nerd Font"
 style = "Bold Italic"
-
