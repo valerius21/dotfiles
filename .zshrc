@@ -5,6 +5,8 @@ plug "zap-zsh/supercharge"
 plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "chivalryq/git-alias"
+plug "MichaelAquilina/zsh-you-should-use"
+plug "zap-zsh/sudo"
 
 # Load and initialise completion system
 autoload -Uz compinit
