@@ -107,8 +107,13 @@ function kill_port() {
 
 
 function flush_dns() {
-  # TODO: assert Darwin
+  # assert Darwin
+  if [[ "$OSTYPE" != "darwin"* ]]; then
+    sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+    return 0
+  fi
 
-  sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+  sudo resolvectl flush-caches
+  sudo systemd-resolve --flush-caches
 }
 
