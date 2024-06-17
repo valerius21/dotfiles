@@ -23,3 +23,4 @@ alias ollamas="export OLLAMA_ORIGINS='*' && ollama serve"
 alias kubectl="minikube kubectl --"
 alias kc="minikube kubectl --"
 alias kcaf="minikube kubectl -- apply -f"
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
