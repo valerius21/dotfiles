@@ -24,6 +24,8 @@ source <(fzf --zsh)
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# bob
+export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
 
 # if ~/.zshenv file exists, load it
 if [ -f ~/.zshenv ]; then
@@ -49,3 +51,5 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 fi
 
+
+PATH=~/.console-ninja/.bin:$PATH
