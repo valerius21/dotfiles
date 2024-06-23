@@ -117,3 +117,16 @@ function flush_dns() {
   sudo systemd-resolve --flush-caches
 }
 
+function yy() {
+  # check if yazi is installed
+  if ! command -v yazi > /dev/null; then
+    echo "Error: yazi is not installed."
+    return 1
+  fi
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
