@@ -1,0 +1,5 @@
+[user]
+	name = Valerius Mattfeld
+	email = mail@valerius.me
+[core]
+	autocrlf = input
