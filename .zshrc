@@ -9,71 +9,21 @@ plug "MichaelAquilina/zsh-you-should-use"
 plug "zap-zsh/sudo"
 plug "valerius21/omz-gitignore"
 
+# if [[ "$OSTYPE" == "darwin"* ]]; then
+#   # Load homebrew completions, if they exist
+#   load_homebrew_completions()
+# fi
+
 # Load and initialise completion system
 autoload -Uz compinit
 compinit
-
-source ~/.aliases.zsh
-source ~/.functions.zsh
-eval "$(zoxide init zsh)"
-source <(fzf --zsh)
-
-# bun completions
-[ -s "/home/valerius/.bun/_bun" ] && source "/home/valerius/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# bob
-export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
 
 # if ~/.zshenv file exists, load it
 if [ -f ~/.zshenv ]; then
   source ~/.zshenv
 fi
 
-# source ssh-agent
-eval $(ssh-agent) > /dev/null
-# Run this, only when on macOS
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  # Herd injected NVM configuration
-  export NVM_DIR="/Users/valerius/Library/Application Support/Herd/config/nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-  [[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
-
-  # Herd injected PHP 8.3 configuration.
-  export HERD_PHP_83_INI_SCAN_DIR="/Users/valerius/Library/Application Support/Herd/config/php/83/"
-
-
-  # Herd injected PHP binary.
-  export PATH="/Users/valerius/Library/Application Support/Herd/bin/":$PATH
-  export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
-fi
-
-
-PATH=~/.console-ninja/.bin:$PATH
-# pnpm
-export PNPM_HOME="/Users/valerius/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# poetry
-fpath+=~/.zfunc
-autoload -Uz compinit && compinit
-
-
-# Herd injected PHP 8.2 configuration.
-export HERD_PHP_82_INI_SCAN_DIR="/Users/valerius/Library/Application Support/Herd/config/php/82/"
-
-
-# Herd injected PHP 8.4 configuration.
-export HERD_PHP_84_INI_SCAN_DIR="/Users/valerius/Library/Application Support/Herd/config/php/84/"
-
-# Load homebrew completions, if they exist
-load_homebrew_completions()
+source ~/.aliases.zsh
+source ~/.functions.zsh
+source ~/.tools.zsh
 
