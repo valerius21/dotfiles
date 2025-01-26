@@ -1,31 +1,30 @@
 # aliases 
 
-NEOVIM_CONFIG_DIR="$HOME/.config/nvim-kickstart/"
-export EDITOR="NVIM_APPNAME=\"nvim-kickstart\" nvim"
+NEOVIM_CONFIG_DIR="$HOME/.config/nvim/"
+export EDITOR="nvim"
 
-alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
-alias nk='NVIM_APPNAME="nvim-kickstart" nvim'
-alias find="fd"
-alias v="nk"
-alias vv="nk ."
-alias lg="lazygit"
-alias ld="lazydocker"
-alias kubectl="minikube kubectl --"
-alias cd="z"
-alias venv=setup_venv
-alias ezs="$EDITOR ~/.zshrc"
-alias szs="source ~/.zshrc"
-alias vcfg="$EDITOR $NEOVIM_CONFIG_DIR"
 alias ":r"="source ~/.zshrc"
-alias ncfg="cd ~/.config/nvim/lua/user && nvim . && cd -"
+alias cd="z"
 alias cls="clear"
-alias ollamas="export OLLAMA_ORIGINS='*' && ollama serve"
-alias kubectl="minikube kubectl --"
+alias ezs="$EDITOR ~/.zshrc"
+alias find="fd"
 alias kc="minikube kubectl --"
 alias kcaf="minikube kubectl -- apply -f"
-alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
-alias ls="eza"
+alias kp=kill_port
+alias kubectl="minikube kubectl --"
+alias kubectl="minikube kubectl --"
 alias l="eza"
-alias ll="eza -l"
 alias la="eza -a"
 alias lah="eza -lah"
+alias ld="lazydocker"
+alias lg="lazygit"
+alias ll="eza -l"
+alias ls="eza"
+alias ncfg="cd ~/.config/nvim/lua/user && nvim . && cd -"
+alias ollamas="export OLLAMA_ORIGINS='*' && ollama serve"
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+alias szs="source ~/.zshrc"
+alias v="nvim"
+alias vcfg="$EDITOR $NEOVIM_CONFIG_DIR"
+alias venv=setup_venv
+alias vv="nvim ."

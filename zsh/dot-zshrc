@@ -18,12 +18,12 @@ plug "valerius21/omz-gitignore"
 autoload -Uz compinit
 compinit
 
+source ~/.aliases.zsh
+source ~/.functions.zsh
+source ~/.tools.zsh
 # if ~/.zshenv file exists, load it
 if [ -f ~/.zshenv ]; then
   source ~/.zshenv
 fi
 
-source ~/.aliases.zsh
-source ~/.functions.zsh
-source ~/.tools.zsh
 
