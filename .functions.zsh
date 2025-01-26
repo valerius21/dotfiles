@@ -65,7 +65,7 @@ function setup_venv() {
         echo "creating .venv"
         python3 -m venv .venv
         if [[ ! -f ./.gitignore ]] || ! grep -q "^venv/$" ./.gitignore; then
-            curl -L "https://www.gitignore.io/api/python" > ./.gitignore
+            curl -L "https://www.gitignore.io/api/python,idea" > ./.gitignore
         fi
         if [[ -f ./requirements.txt ]]; then 
             echo "requirements.txt found, installing"
@@ -129,4 +129,64 @@ function yy() {
 		cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+# Function to browse, confirm, and execute `gi <selection>` with file handling
+gif() {
+  local gitignore_file=".gitignore"
+
+  # Check if a .gitignore file already exists
+  if [[ -e "$gitignore_file" ]]; then
+    echo ".gitignore file already exists."
+    echo -n "Do you want to overwrite it? (y/n): "
+    read overwrite_confirm
+
+    if [[ ! "$overwrite_confirm" =~ ^[Yy]$ ]]; then
+      echo "Operation aborted. Existing .gitignore file retained."
+      return 1
+    fi
+  fi
+
+  # Fetch the list of available options from the gitignore API
+  local options
+  options=$(_gitignoreio_get_command_list)
+
+  # Use fzf for multi-select, separated by commas
+  local selection
+  selection=$(echo "$options" | fzf --multi --delimiter='\n' --bind 'tab:toggle+down' | tr '\n' ',' | sed 's/,$//')
+
+  if [[ -z "$selection" ]]; then
+    echo "No selection made."
+    return 1
+  fi
+
+  # Confirm the selection with Y as default
+  echo "You selected: $selection"
+  echo -n "Proceed to write to .gitignore with 'gi $selection'? (Y/n): "
+  read confirm
+
+  # Treat empty input or 'y'/'Y' as confirmation
+  if [[ -z "$confirm" || "$confirm" =~ ^[Yy]$ ]]; then
+    # Write the result of `gi <selection>` to the .gitignore file
+    gi "$selection" > "$gitignore_file"
+    echo ".gitignore successfully updated with the selected rules."
+  else
+    echo "Operation cancelled."
+  fi
+}
+
+# Load homebrew completions, if they exist
+load_homebrew_completions() {
+  MACOS_COMPLETIONS="/opt/homebrew/share/zsh/site-functions"
+
+  # Check if the completions directory exists
+  if [[ -d "$MACOS_COMPLETIONS" ]]; then
+    for file in "$MACOS_COMPLETIONS"/*; do
+      # Check if the file is a regular file and not a directory
+      if [[ -f "$file" && ! -d "$file" ]]; then
+        # Load the completion file
+        source "$file"
+      fi
+    done
+  fi
 }

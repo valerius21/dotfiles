@@ -7,6 +7,7 @@ plug "zsh-users/zsh-syntax-highlighting"
 plug "chivalryq/git-alias"
 plug "MichaelAquilina/zsh-you-should-use"
 plug "zap-zsh/sudo"
+plug "valerius21/omz-gitignore"
 
 # Load and initialise completion system
 autoload -Uz compinit
@@ -53,3 +54,26 @@ fi
 
 
 PATH=~/.console-ninja/.bin:$PATH
+# pnpm
+export PNPM_HOME="/Users/valerius/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# poetry
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
+
+
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/valerius/Library/Application Support/Herd/config/php/82/"
+
+
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/valerius/Library/Application Support/Herd/config/php/84/"
+
+# Load homebrew completions, if they exist
+load_homebrew_completions()
+
