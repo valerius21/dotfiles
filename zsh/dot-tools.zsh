@@ -22,7 +22,7 @@ eval $(ssh-agent) > /dev/null
 
 # ------------- Herd
 # Run this, only when on macOS and herd is installed
-if [[ "$OSTYPE" == "darwin"* && command -v herd > /dev/null ]]; then
+if [[ "$OSTYPE" == "darwin"* ]] && command -v herd > /dev/null; then
   # Herd injected NVM configuration
   export NVM_DIR="$HOME/Library/Application Support/Herd/config/nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
