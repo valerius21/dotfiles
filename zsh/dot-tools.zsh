@@ -48,4 +48,9 @@ export HERD_PHP_84_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/p
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit
 
+# ------------- homebrew completions
+if [[ "$OSTYPE" == "darwin"* ]] && command -v brew > /dev/null; then
+  fpath+=$(brew --prefix)/share/zsh/site-functions
+  autoload -Uz compinit && compinit
+fi
 
