@@ -14,3 +14,7 @@ this folder mappes to the home directory.
 
 `stow -R <folder>`
 
+
+## TODO
+
+- [ ]  replace `pass` with `bw`
