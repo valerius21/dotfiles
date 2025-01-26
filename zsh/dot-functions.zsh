@@ -177,16 +177,18 @@ gif() {
 
 # Load homebrew completions, if they exist
 load_homebrew_completions() {
-  MACOS_COMPLETIONS="/opt/homebrew/share/zsh/site-functions"
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    MACOS_COMPLETIONS="/opt/homebrew/share/zsh/site-functions"
 
-  # Check if the completions directory exists
-  if [[ -d "$MACOS_COMPLETIONS" ]]; then
-    for file in "$MACOS_COMPLETIONS"/*; do
-      # Check if the file is a regular file and not a directory
-      if [[ -f "$file" && ! -d "$file" ]]; then
-        # Load the completion file
-        source "$file"
-      fi
-    done
+    # Check if the completions directory exists
+    if [[ -d "$MACOS_COMPLETIONS" ]]; then
+      for file in "$MACOS_COMPLETIONS"/*; do
+        # Check if the file is a regular file and not a directory
+        if [[ -f "$file" && ! -d "$file" ]]; then
+          # Load the completion file
+          source "$file"
+        fi
+      done
+    fi
   fi
 }
