@@ -2,4 +2,15 @@
 
 this folder mappes to the home directory.
 
-`stow --adpot .`
+## Mapping the dotfiles
+
+`stow --dotfiles <folder>`
+
+## Delete the dotfiles
+
+`stow --dotfiles -D <folder>`
+
+## Refresh the dotfiles
+
+`stow -R <folder>`
+
