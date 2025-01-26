@@ -5,7 +5,7 @@ eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 
 # ------------- bun completions
-[ -s "/home/valerius/.bun/_bun" ] && source "/home/valerius/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # ------------- bun
 export BUN_INSTALL="$HOME/.bun"
@@ -17,9 +17,10 @@ export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
 # ------------- console-ninja
 export PATH=~/.console-ninja/.bin:$PATH
 
-# ------------- Herd
-# source ssh-agent
+# ------------- source ssh-agent
 eval $(ssh-agent) > /dev/null
+
+# ------------- Herd
 # Run this, only when on macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Herd injected NVM configuration
@@ -41,14 +42,6 @@ fi
 export HERD_PHP_82_INI_SCAN_DIR="/Users/valerius/Library/Application Support/Herd/config/php/82/"
 # Herd injected PHP 8.4 configuration.
 export HERD_PHP_84_INI_SCAN_DIR="/Users/valerius/Library/Application Support/Herd/config/php/84/"
-
-
-# ------------- pnpm
-export PNPM_HOME="/Users/valerius/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
 
 
 # ------------- poetry
