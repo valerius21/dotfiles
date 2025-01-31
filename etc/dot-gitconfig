@@ -1,9 +1,17 @@
+[alias]
+	# most aliases are managed by zap
+	oops = commit --amend --no-edit
+	reword = commit --amend
+	uncommit = reset --soft HEAD~1
+	untrack = rm --cache --
 [user]
 	name = Valerius Mattfeld
 	email = mail@valerius.me
 [core]
 	autocrlf = input
 	pager = delta
+  # Don't consider trailing space change as a cause for merge conflicts
+	whitespace = -trailing-space
 [interactive]
 	diffFilter = delta --color-only
 [delta]
@@ -12,5 +20,18 @@
 	line-numbers = true
 [merge]
 	conflictstyle = zdiff3
+	ff = false
 [init]
 	defaultBranch = master
+[grep]
+	break = true
+	heading = true
+	lineNumber = true
+	extendedRegexp = true
+[log]
+	abbrevCommit = true # short hash
+	follow = true
+	decorate = false # disable decorate for reflog
+[push]
+	default = upstream
+	followTags = true
