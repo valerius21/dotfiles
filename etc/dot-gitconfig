@@ -3,3 +3,5 @@
 	email = mail@valerius.me
 [core]
 	autocrlf = input
+[init]
+	defaultBranch = master
