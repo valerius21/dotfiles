@@ -192,3 +192,48 @@ load_homebrew_completions() {
     fi
   fi
 }
+
+# Function to browse, confirm, and execute `gi <selection>` with file handling
+gitignore_fzf_execute() {
+  local gitignore_file=".gitignore"
+
+  # Check if a .gitignore file already exists
+  if [[ -e "$gitignore_file" ]]; then
+    echo ".gitignore file already exists."
+    echo -n "Do you want to overwrite it? (y/n): "
+    read overwrite_confirm
+
+    if [[ ! "$overwrite_confirm" =~ ^[Yy]$ ]]; then
+      echo "Operation aborted. Existing .gitignore file retained."
+      return 1
+    fi
+  fi
+
+  # Fetch the list of available options from the gitignore API
+  local options
+  options=$(_gitignoreio_get_command_list)
+
+  # Use fzf for multi-select, separated by commas
+  local selection
+  selection=$(echo "$options" | fzf --multi --delimiter='\n' --bind 'tab:toggle+down' | tr '\n' ',' | sed 's/,$//')
+
+  if [[ -z "$selection" ]]; then
+    echo "No selection made."
+    return 1
+  fi
+
+  # Confirm the selection with Y as default
+  echo "You selected: $selection"
+  echo -n "Proceed to write to .gitignore with 'gi $selection'? (Y/n): "
+  read confirm
+
+  # Treat empty input or 'y'/'Y' as confirmation
+  if [[ -z "$confirm" || "$confirm" =~ ^[Yy]$ ]]; then
+    # Write the result of `gi <selection>` to the .gitignore file
+    gi "$selection" > "$gitignore_file"
+    echo ".gitignore successfully updated with the selected rules."
+  else
+    echo "Operation cancelled."
+  fi
+}
+

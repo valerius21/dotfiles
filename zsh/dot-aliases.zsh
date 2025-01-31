@@ -28,3 +28,4 @@ alias v="nvim"
 alias vcfg="$EDITOR $NEOVIM_CONFIG_DIR"
 alias venv=setup_venv
 alias vv="nvim ."
+alias gifzf=gitignore_fzf_execute
