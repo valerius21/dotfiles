@@ -1,5 +1,17 @@
 #!/bin/zsh
 
+function check_installed() {
+  if [[ -z "$1" ]]; then
+    return 1
+  fi
+  
+  if command -v "$1" >/dev/null 2>&1; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 function biome_init() {
   # This script installs biome in the current repository and migrates exisitng prettier/eslint configs
   echo "Initializing biome for repository $(pwd)"
@@ -237,3 +249,36 @@ gitignore_fzf_execute() {
   fi
 }
 
+
+init_gitleaks() {
+  PRE_COMMIT_CONFIG=".pre-commit-config.yaml"
+  if [[ -e $PRE_COMMIT_CONFIG ]]; then
+    echo "pre commit config exists"
+    return 1
+  fi
+  if ! check_installed git; then
+    echo "git not installed"
+    return 1
+  fi
+  if [[ ! -e ./.git ]]; then
+    echo "no git repo present"
+    return 1
+  fi
+  if ! check_installed gitleaks; then
+    echo "gitleaks not installed."
+    return 1
+  fi
+  if ! check_installed pre-commit; then
+    echo "pre-commit not installed."
+    return 1
+  fi
+
+  echo "repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.23.1
+    hooks:
+      - id: gitleaks" >> $PRE_COMMIT_CONFIG
+  
+  pre-commit autoupdate
+  pre-commit install
+}
