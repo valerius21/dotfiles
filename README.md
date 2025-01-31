@@ -38,10 +38,12 @@ fzf
 ghostty
 git
 git-delta
+gitleaks
 jq
 lazygit
 neovim
 nodejs # or nvm, or bun
+pre-commit
 python3-pipenv # or python3-venv
 ripgrep
 stow
