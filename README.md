@@ -28,12 +28,16 @@ Minimum `stow` version should be [`2.4.0`](https://github.com/aspiers/stow/issue
 If, in the future, I decide to use home-manager, it'd be handy to have this list
 
 ```bash
+curl
+wget
 exa
+ffmpeg
 fd
 fzf
 git
 git-delta
 lazygit
+neovim
 nodejs # or nvm, or bun
 python3-pipenv # or python3-venv
 ripgrep
