@@ -22,3 +22,22 @@ Minimum `stow` version should be [`2.4.0`](https://github.com/aspiers/stow/issue
 ## TODO
 
 - [ ]  replace `pass` with `bw`
+
+## Tools
+
+If, in the future, I decide to use home-manager, it'd be handy to have this list
+
+```bash
+exa
+fd
+fzf
+git
+git-delta
+lazygit
+nodejs # or nvm, or bun
+python3-pipenv # or python3-venv
+ripgrep
+stow
+yazi
+zsh
+```
