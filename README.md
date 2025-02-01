@@ -47,6 +47,7 @@ pre-commit
 python3-pipenv # or python3-venv
 ripgrep
 stow
+uv
 wget
 yazi
 zsh
