@@ -39,6 +39,7 @@ ghostty
 git
 git-delta
 gitleaks
+go
 jq
 lazygit
 neovim
