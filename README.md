@@ -41,9 +41,10 @@ gitleaks
 go
 jq
 lazygit
+lazysql
+miniserve
 neovim
 nodejs # or nvm, or bun
-miniserve
 pre-commit
 python3-pipenv # or python3-venv
 ripgrep
