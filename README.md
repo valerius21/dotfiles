@@ -18,7 +18,6 @@ Minimum `stow` version should be [`2.4.0`](https://github.com/aspiers/stow/issue
 
 `stow -R <folder>`
 
-
 ## TODO
 
 - [ ]  replace `pass` with `bw`
@@ -43,6 +42,7 @@ jq
 lazygit
 neovim
 nodejs # or nvm, or bun
+miniserve
 pre-commit
 python3-pipenv # or python3-venv
 ripgrep
