@@ -23,6 +23,7 @@ alias ls="eza"
 alias ncfg="cd ~/.config/nvim/lua/user && nvim . && cd -"
 alias ollamas="export OLLAMA_ORIGINS='*' && ollama serve"
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+alias serve='miniserve'
 alias szs="source ~/.zshrc"
 alias v="nvim"
 alias vcfg="$EDITOR $NEOVIM_CONFIG_DIR"

@@ -18,7 +18,6 @@ Minimum `stow` version should be [`2.4.0`](https://github.com/aspiers/stow/issue
 
 `stow -R <folder>`
 
-
 ## TODO
 
 - [ ]  replace `pass` with `bw`
@@ -42,6 +41,8 @@ gitleaks
 go
 jq
 lazygit
+lazysql
+miniserve
 neovim
 nodejs # or nvm, or bun
 pre-commit
