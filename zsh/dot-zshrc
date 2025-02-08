@@ -9,10 +9,6 @@ plug "MichaelAquilina/zsh-you-should-use"
 plug "zap-zsh/sudo"
 plug "valerius21/omz-gitignore"
 
-# if [[ "$OSTYPE" == "darwin"* ]]; then
-#   # Load homebrew completions, if they exist
-#   load_homebrew_completions()
-# fi
 
 # Load and initialise completion system
 autoload -Uz compinit
@@ -26,20 +22,3 @@ if [ -f ~/.zshenv ]; then
   source ~/.zshenv
 fi
 
-
-
-
-# Herd injected PHP binary.
-export PATH="/Users/valerius/Library/Application Support/Herd/bin/":$PATH
-
-
-# Herd injected PHP 8.4 configuration.
-export HERD_PHP_84_INI_SCAN_DIR="/Users/valerius/Library/Application Support/Herd/config/php/84/"
-
-
-# Herd injected PHP 8.3 configuration.
-export HERD_PHP_83_INI_SCAN_DIR="/Users/valerius/Library/Application Support/Herd/config/php/83/"
-
-
-# Herd injected PHP 8.2 configuration.
-export HERD_PHP_82_INI_SCAN_DIR="/Users/valerius/Library/Application Support/Herd/config/php/82/"
