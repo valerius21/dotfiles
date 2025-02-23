@@ -12,7 +12,10 @@ plugins=(
 				sudo
 				tmux
 				web-search
+				you-should-use
 				zoxide
+				zsh-autosuggestions
+				zsh-syntax-highlighting
 				)
 
 source $ZSH/oh-my-zsh.sh
