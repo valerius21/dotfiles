@@ -6,7 +6,7 @@
 	untrack = rm --cache --
 [user]
 	name = Valerius Mattfeld
-	email = mail@valerius.me
+	email = git@valerius.me
 [core]
 	autocrlf = input
 	pager = delta
@@ -19,8 +19,17 @@
 	side-by-side = true # NOTE: trial
 	line-numbers = true
 [merge]
+	tool = "nvim"
 	conflictstyle = zdiff3
 	ff = false
+
+[mergetool]
+	keepBackup = false
+	prompt = false
+	
+[mergetool "nvim"]
+	cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+
 [init]
 	defaultBranch = master
 [grep]

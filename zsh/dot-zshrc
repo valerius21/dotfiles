@@ -10,7 +10,7 @@ plugins=(
 				ssh
 				ssh-agent
 				sudo
-				tmux
+				# tmux
 				web-search
 				you-should-use
 				zoxide
@@ -20,3 +20,27 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+
+
+# Herd injected PHP binary.
+export PATH="/Users/valerius/Library/Application Support/Herd/bin/":$PATH
+
+
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/valerius/Library/Application Support/Herd/config/php/84/"
+
+
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/valerius/Library/Application Support/Herd/config/php/83/"
+
+
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/valerius/Library/Application Support/Herd/config/php/82/"
+
+# bun completions
+[ -s "/Users/valerius/.bun/_bun" ] && source "/Users/valerius/.bun/_bun"
+#. "/Users/valerius/.acme.sh/acme.sh.env"
+
+# Added by Windsurf
+#export PATH="/Users/valerius/.codeium/windsurf/bin:$PATH"
+PATH=~/.console-ninja/.bin:$PATH
